@@ -1,3 +1,4 @@
+restful_api/.idea/
 scrapy-clawer/scrapy_clawer/.idea/
 scrapy-clawer/scrapy_clawer/*.html
 scrapy-clawer/scrapy_clawer/scrapy_clawer/spiders/*.log
