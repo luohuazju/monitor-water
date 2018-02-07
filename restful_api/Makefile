@@ -8,10 +8,10 @@ build: docker-context
 	docker build -t $(IMAGE):$(TAG) .
 
 run:
-	docker run -d -p 8000:8000 --name $(NAME) $(IMAGE):$(TAG)
+	docker run -d -p 8000:8000 -v /opt/water-monitor/restful_api:/share/water-monitor/restful_api --name $(NAME) $(IMAGE):$(TAG)
 
 debug:
-	docker run -ti -p 8000:8000 --name $(NAME) $(IMAGE):$(TAG) /bin/bash
+	docker run -ti -p 8000:8000 -v /opt/water-monitor/restful_api:/share/water-monitor/restful_api --name $(NAME) $(IMAGE):$(TAG) /bin/bash
 
 clean:
 	docker stop ${NAME}

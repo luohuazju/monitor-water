@@ -19,11 +19,9 @@ RUN pip install greenlet
 RUN pip install gevent
 RUN pip install eventlet
 
-#install our django restful_api app
-
 #start the application
-#EXPOSE  8000
-#RUN     mkdir -p /app/
-#ADD     start.sh /app/
-#WORKDIR /app/
-#CMD	[ "./start.sh" ]
+EXPOSE  8000
+RUN     mkdir -p /app/
+ADD     start.sh /app/
+WORKDIR /app/
+CMD	[ "./start.sh" ]
