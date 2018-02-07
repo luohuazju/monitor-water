@@ -43,8 +43,13 @@ def water_record_list(request):
     elif request.method == 'POST':
         serializer = WaterRecordSerializer(data = request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status = status.HTTP_201_CREATED)
+            item = serializer.validated_data
+            result, created = WaterRecord.objects.get_or_create(
+                waterName=item['waterName'],
+                releasedDate=item['releasedDate'],
+                defaults = item)
+            serializerResult = WaterRecordSerializer(result)
+            return Response(serializerResult.data, status = status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
