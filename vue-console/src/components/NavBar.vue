@@ -6,10 +6,11 @@
       <b-navbar-brand href="/">Home</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <!-- Right aligned nav items -->
-        <b-nav is-nav-bar class="ml-auto">
-          <b-nav is-nav-bar>
+        <b-nav b-nav-bar class="ml-auto">
+          <b-nav b-nav-bar>
             <b-nav-item href="#/product_list">Product List</b-nav-item>
             <b-nav-item href="#/product_add">Add Product</b-nav-item>
+            <b-nav-item href="#/water_release">Water Release</b-nav-item>
           </b-nav>
         </b-nav>
       </b-collapse>

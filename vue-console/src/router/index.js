@@ -8,6 +8,7 @@ import HelloWorld from '@/components/HelloWorld'
 import ProductAdd from '@/components/ProductAdd'
 import ProductList from '@/components/ProductList'
 import NavBar from '@/components/NavBar'
+import WaterRelease from '@/components/WaterRelease'
 
 Vue.use(Router)
 Vue.use(BootstrapVue)
@@ -38,6 +39,11 @@ export default new Router({
       path: '/product_add',
       name: 'ProductAdd',
       component: ProductAdd
+    },
+    {
+      path: '/water_release',
+      name: 'WaterRelease',
+      component: WaterRelease
     }
   ]
 })
