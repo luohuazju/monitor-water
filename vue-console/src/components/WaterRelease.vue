@@ -10,14 +10,18 @@
 </template>
 
 <script>
-import LineChart from '../components/LineChart.js'
+import LineChart from '../utils/LineChart'
+import {RESTfulClient} from '../utils/RESTFulClient'
+
 export default {
   components: {
     LineChart
   },
   data () {
     return {
-      datacollection: { labels: [], datasets: [] }
+      datacollection: { labels: [], datasets: [] },
+      posts: [],
+      errors: []
     }
   },
   mounted () {
@@ -39,6 +43,15 @@ export default {
           }
         ]
       }
+      RESTfulClient.get(`posts`)
+        .then(response => {
+          this.posts = response.data
+          console.log(this.posts)
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
+
       this.datacollection = result
     }
   }
