@@ -4,3 +4,7 @@ scrapy-clawer/scrapy_clawer/*.html
 scrapy-clawer/scrapy_clawer/scrapy_clawer/spiders/*.log
 /**/*.pyc
 vue-console/build/
+restful_java_api/.classpath
+restful_java_api/.project
+restful_java_api/.settings/
+restful_java_api/target/
