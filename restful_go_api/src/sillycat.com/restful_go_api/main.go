@@ -17,11 +17,11 @@ func setupRouter() *gin.Engine {
 
 	v1 := router.Group("api/v1")
 	{
-		v1.GET("/instructions", waterrecord.GetInstructions)
-		v1.GET("/instructions/:id", waterrecord.GetInstruction)
-		v1.POST("/instructions", waterrecord.PostInstruction)
-		v1.PUT("/instructions/:id", waterrecord.UpdateInstruction)
-		v1.DELETE("/instructions/:id", waterrecord.DeleteInstruction)
+		v1.GET("/waterrecords", waterrecord.GetWaterRecords)
+		v1.GET("/waterrecords/:id", waterrecord.GetWaterRecord)
+		v1.POST("/waterrecords", waterrecord.PostWaterRecord)
+		v1.PUT("/waterrecords/:id", waterrecord.UpdateWaterRecord)
+		v1.DELETE("/waterrecords/:id", waterrecord.DeleteWaterRecord)
 	}
 
 	return router
