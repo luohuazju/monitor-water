@@ -101,7 +101,7 @@ func DeleteWaterRecord(c *gin.Context) {
 	} else {
 		if has {
 			itemID, _ := strconv.ParseInt(id, 0, 64)
-			_, err := engine.Where("id = ?", itemID).Delete(&item)
+			_, err := engine.Where("id = ?", itemID).Delete(item)
 			if err != nil {
 				log.Fatal("Fail to delete:", err)
 			} else {
