@@ -100,8 +100,8 @@ func DeleteWaterRecord(c *gin.Context) {
 		log.Fatal("Fail to find item:", err)
 	} else {
 		if has {
-			itemID, _ := strconv.ParseInt(id, 0, 64)
-			_, err := engine.Where("id = ?", itemID).Delete(item)
+			//itemID, _ := strconv.ParseInt(id, 0, 64)
+			_, err := engine.Where("id = ?", id).Delete(item)
 			if err != nil {
 				log.Fatal("Fail to delete:", err)
 			} else {
