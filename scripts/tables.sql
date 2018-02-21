@@ -1,11 +1,11 @@
-CREATE TABLE `WATER_MONITOR` (
-  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
-  `LOCATION` varchar(256) NOT NULL,
-  `START_TIME` varchar(256) NOT NULL,
-  `END_TIME` varchar(256) NOT NULL,
-  `DURATION` int(11) NOT NULL,
-  `RELEASE_DATE` varchar(256) NOT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL,
-  `UPDATE_DATE` datetime DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+CREATE TABLE `water_monitor` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `location` varchar(256) NOT NULL,
+  `start_time` varchar(256) NOT NULL,
+  `end_time` varchar(256) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `release_date` varchar(256) NOT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;

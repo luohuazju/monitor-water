@@ -4,9 +4,17 @@ Prepare the library
 
 >go get github.com/gin-gonic/gin
 
+>go get github.com/go-xorm/xorm
+
+>go get github.com/go-sql-driver/mysql
+
 How to Build for local
 
 >go install sillycat.com/restful_go_api
+
+How to Run Test
+
+>go test sillycat.com/restful_go_api
 
 How to Build for Linux
 
