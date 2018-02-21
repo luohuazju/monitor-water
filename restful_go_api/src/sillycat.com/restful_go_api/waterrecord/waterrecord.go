@@ -50,7 +50,19 @@ func GetWaterRecord(c *gin.Context) {
 }
 
 func PostWaterRecord(c *gin.Context) {
-	c.JSON(200, gin.H{"ok": "POST api/v1/waterrecords"})
+	var item WaterRecord
+	c.Bind(&item)
+
+	if item.Location != "" && item.ReleaseDate != "" {
+		_, err := engine.Insert(&item)
+		if err != nil {
+			log.Fatal("Insert fail:", err)
+		} else {
+			c.JSON(201, item)
+		}
+	} else {
+		c.JSON(422, gin.H{"error": "fields are empty!"})
+	}
 
 }
 
