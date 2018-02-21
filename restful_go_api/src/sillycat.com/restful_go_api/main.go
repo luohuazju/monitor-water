@@ -1,7 +1,7 @@
 package main
 
 import "github.com/gin-gonic/gin"
-import "com/sillycat/restful_go_api/waterrecord"
+import "sillycat.com/restful_go_api/waterrecord"
 
 var DB = make(map[string]string)
 
