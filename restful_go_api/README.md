@@ -20,6 +20,10 @@ How to Build for Linux
 
 >env GOOS=linux GOARCH=amd64 go build -o bin/restful_go_api_linux -v sillycat.com/restful_go_api
 
+How to Build for Raspberrypi
+
+>env GOOS=linux GOARCH=arm GOARM=7 go build -o bin/restful_go_api_arm -v sillycat.com/restful_go_api
+
 How to Run
 
 >bin/restful_go_api
