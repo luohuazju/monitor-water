@@ -5,7 +5,7 @@ import "sillycat.com/restful_go_api/waterrecord"
 
 var DB = make(map[string]string)
 
-func setupRouter() *gin.Engine {
+func SetupRouter() *gin.Engine {
 	// Disable Console Color
 	// gin.DisableConsoleColor()
 	router := gin.Default()
@@ -28,7 +28,7 @@ func setupRouter() *gin.Engine {
 }
 
 func main() {
-	router := setupRouter()
+	router := SetupRouter()
 	// Listen and Server in 0.0.0.0:8080
 	router.Run(":8080")
 }
