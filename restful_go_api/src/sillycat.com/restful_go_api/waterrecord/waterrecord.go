@@ -3,6 +3,7 @@ package waterrecord
 import (
 	"github.com/gin-gonic/gin"
 	"log"
+	"strconv"
 	"time"
 )
 
@@ -67,8 +68,26 @@ func PostWaterRecord(c *gin.Context) {
 }
 
 func UpdateWaterRecord(c *gin.Context) {
-	c.JSON(200, gin.H{"ok": "PUT api/v1/waterrecords/1"})
+	var item WaterRecord
+	id := c.Param("id")
+	c.Bind(&item)
 
+	has, err := engine.SQL("select * from water_monitor where id = ?", id).Exist()
+	if err != nil {
+		log.Fatal("Fail to find item:", err)
+	} else {
+		if has {
+			item.Id, _ = strconv.ParseInt(id, 0, 64)
+			_, err := engine.Id(id).Update(&item)
+			if err != nil {
+				log.Fatal("Fail to update item:", err)
+			} else {
+				c.JSON(200, item)
+			}
+		} else {
+			c.JSON(404, gin.H{"error": "Water Record not found"})
+		}
+	}
 }
 
 func DeleteWaterRecord(c *gin.Context) {
