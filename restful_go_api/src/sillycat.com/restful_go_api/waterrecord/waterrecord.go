@@ -91,5 +91,24 @@ func UpdateWaterRecord(c *gin.Context) {
 }
 
 func DeleteWaterRecord(c *gin.Context) {
-	c.JSON(200, gin.H{"ok": "DELETE api/v1/waterrecords/1"})
+	id := c.Param("id")
+
+	item := new(WaterRecord)
+
+	has, err := engine.SQL("select * from water_monitor where id = ?", id).Exist()
+	if err != nil {
+		log.Fatal("Fail to find item:", err)
+	} else {
+		if has {
+			itemID, _ := strconv.ParseInt(id, 0, 64)
+			_, err := engine.Where("id = ?", itemID).Delete(&item)
+			if err != nil {
+				log.Fatal("Fail to delete:", err)
+			} else {
+				c.JSON(202, gin.H{"id": id})
+			}
+		} else {
+			c.JSON(404, gin.H{"error": "Water Record not found"})
+		}
+	}
 }
