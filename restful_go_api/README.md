@@ -27,3 +27,9 @@ How to Build for Raspberrypi
 How to Run
 
 >bin/restful_go_api
+
+For developer
+
+Install golang dep on your system
+
+>dep ensure
