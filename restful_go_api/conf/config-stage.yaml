@@ -1,10 +1,10 @@
 http: 
-  port: 8080
+  port: 8081
 gin:
   debug: true
 database:
   type: mysql
-  host: 192.168.1.108
+  host: sillycat.ddns.net
   user: watermonitor
   password: kaishi117A
   port: 3306

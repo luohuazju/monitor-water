@@ -2,3 +2,10 @@ http:
   port: 8081
 gin:
   debug: false
+database:
+  type: mysql
+  host: 192.168.1.109
+  user: watermonitor
+  password: kaishi117A
+  port: 3306
+  name: watermonitor

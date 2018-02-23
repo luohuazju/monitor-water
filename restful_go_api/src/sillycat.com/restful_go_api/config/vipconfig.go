@@ -16,6 +16,9 @@ func InitViperConfig() {
 	if os.Getenv("ENVIRONMENT") == "PROD" {
 		log.Println("system is running under PROD mode")
 		viper.SetConfigName(appName + "-prod") // name of config file (without extension)
+	} else if os.Getenv("ENVIRONMENT") == "STAGE" {
+		log.Println("system is running under STAGE mode")
+		viper.SetConfigName(appName + "-stage") // name of config file (without extension)
 	} else {
 		log.Println("system is running under DEV mode")
 		viper.SetConfigName(appName + "-dev") // name of config file (without extension)

@@ -19,7 +19,7 @@ type WaterRecord struct {
 	UpdateDate  time.Time `xorm:"update_date DATETIME"`
 }
 
-var engine = common.InitDatabase()
+var engine = common.GetDatabase()
 
 func (waterRecord WaterRecord) TableName() string {
 	return "water_monitor"

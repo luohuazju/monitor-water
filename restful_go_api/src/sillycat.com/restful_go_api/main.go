@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 	"log"
-	"sillycat.com/restful_go_api/config"
 	"sillycat.com/restful_go_api/waterrecord"
 )
 
@@ -40,7 +39,6 @@ func SetupRouter() *gin.Engine {
 }
 
 func main() {
-	config.InitViperConfig()
 	router := SetupRouter()
 	// Listen and Server in 0.0.0.0:8080
 	port := viper.GetString("http.port")
