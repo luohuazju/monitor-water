@@ -19,12 +19,18 @@ func InitDatabase() *xorm.Engine {
 	var err error
 
 	dbType := viper.GetString("database.type")
+	dbUser := viper.GetString("database.user")
+	dbPwd := viper.GetString("database.password")
+	dbHost := viper.GetString("database.host")
+	dbPort := viper.GetString("database.port")
+	dbName := viper.GetString("database.name")
 
-	engine, err = xorm.NewEngine(dbType, "watermonitor:kaishi117A@tcp(sillycat.ddns.net:3306)/watermonitor?charset=utf8")
+	engine, err = xorm.NewEngine(dbType, dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbName+"?charset=utf8")
 	if err != nil {
 		fmt.Println(err)
 	}
-	engine.Ping()        //ping
+	engine.Ping() //ping
+
 	engine.ShowSQL(true) //show SQL
 	engine.Logger().SetLevel(core.LOG_DEBUG)
 	return engine
