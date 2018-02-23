@@ -8,6 +8,10 @@ Prepare the library
 
 >go get github.com/go-sql-driver/mysql
 
+Add dependency to dep
+
+>dep ensure -add github.com/spf13/viper
+
 How to Build for local
 
 >go install sillycat.com/restful_go_api
