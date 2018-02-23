@@ -1,4 +1,4 @@
-package waterrecord
+package common
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"github.com/go-xorm/xorm"
 )
 
-func initDatabase() *xorm.Engine {
+func InitDatabase() *xorm.Engine {
 	var engine *xorm.Engine
 	var err error
 	engine, err = xorm.NewEngine("mysql", "watermonitor:kaishi117A@tcp(sillycat.ddns.net:3306)/watermonitor?charset=utf8")

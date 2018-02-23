@@ -3,6 +3,7 @@ package waterrecord
 import (
 	"github.com/gin-gonic/gin"
 	"log"
+	"sillycat.com/restful_go_api/common"
 	"strconv"
 	"time"
 )
@@ -18,7 +19,7 @@ type WaterRecord struct {
 	UpdateDate  time.Time `xorm:"update_date DATETIME"`
 }
 
-var engine = initDatabase()
+var engine = common.InitDatabase()
 
 func (waterRecord WaterRecord) TableName() string {
 	return "water_monitor"
