@@ -28,9 +28,13 @@ How to Build for Raspberrypi
 
 >env GOOS=linux GOARCH=arm GOARM=7 go build -o bin/restful_go_api_arm -v sillycat.com/restful_go_api
 
-How to Run
+How to Run on DEV
 
 >bin/restful_go_api
+
+How to Run on Prod
+
+>ENVIRONMENT=PROD bin/restful_go_api
 
 For developer
 

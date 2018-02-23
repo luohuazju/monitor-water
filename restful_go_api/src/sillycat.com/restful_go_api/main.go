@@ -1,22 +1,25 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 	"log"
-	"os"
+	"sillycat.com/restful_go_api/config"
 	"sillycat.com/restful_go_api/waterrecord"
 )
 
 var DB = make(map[string]string)
 
-const appName = "config"
-
 func SetupRouter() *gin.Engine {
 
 	// Disable Console Color
 	// gin.DisableConsoleColor()
+	if viper.GetBool("gin.debug") {
+		log.Println("Gin is under debug mode")
+	} else {
+		log.Println("Gin is under prod mode")
+		gin.SetMode(gin.ReleaseMode)
+	}
 	router := gin.Default()
 
 	// Ping test
@@ -37,25 +40,7 @@ func SetupRouter() *gin.Engine {
 }
 
 func main() {
-	log.Println("Start to init the config--------")
-	viper.SetDefault("http.port", "8080")
-
-	if os.Getenv("ENVIRONMENT") == "DEV" {
-		log.Println("system is running under DEV mode")
-		viper.SetConfigName(appName + "-dev") // name of config file (without extension)
-	} else {
-		log.Println("system is running under PROD mode")
-		viper.SetConfigName(appName + "-prod") // name of config file (without extension)
-	}
-	viper.AddConfigPath("/etc/" + appName + "/") // path to look for the config file in
-	viper.AddConfigPath("./")                    // optionally look for config in the working directory
-	viper.AddConfigPath("./conf/")
-	viper.AutomaticEnv()
-	err := viper.ReadInConfig() // Find and read the config file
-	if err != nil {             // Handle errors reading the config file
-		panic(fmt.Errorf("Fatal error config file: %s \n", err))
-	}
-
+	config.InitViperConfig()
 	router := SetupRouter()
 	// Listen and Server in 0.0.0.0:8080
 	port := viper.GetString("http.port")

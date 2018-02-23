@@ -1,2 +1,4 @@
 http: 
   port: 8081
+gin:
+  debug: false
