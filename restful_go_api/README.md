@@ -50,4 +50,10 @@ Update all dependency
 
 >dep ensure -update
 
+Some documents
+
+http://sillycat.iteye.com/blog/2411230
+
+http://sillycat.iteye.com/blog/2411864
+
 
