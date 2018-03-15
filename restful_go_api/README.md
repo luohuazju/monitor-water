@@ -40,4 +40,14 @@ For developer
 
 Install golang dep on your system
 
+>cd /Users/hluo/work/monitor-water/restful_go_api/src/sillycat.com/restful_go_api
+
 >dep ensure
+
+Update all dependency
+
+>cd /Users/hluo/work/monitor-water/restful_go_api/src/sillycat.com/restful_go_api
+
+>dep ensure -update
+
+
