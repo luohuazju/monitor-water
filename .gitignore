@@ -12,3 +12,4 @@ restful_java_api/target/
 scrapy_clawer/env/
 scrapy_clawer/.idea
 scrapy_clawer/twistd.pid
+scrapy_clawer/logs/
