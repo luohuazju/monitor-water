@@ -3,12 +3,12 @@ restful_go_api/pkg/
 restful_go_api/bin/
 restful_go_api/.cache/
 restful_api/.idea/
-scrapy-clawer/scrapy_clawer/.idea/
-scrapy-clawer/scrapy_clawer/*.html
-scrapy-clawer/scrapy_clawer/scrapy_clawer/spiders/*.log
 /**/*.pyc
 vue-console/build/
 restful_java_api/.classpath
 restful_java_api/.project
 restful_java_api/.settings/
 restful_java_api/target/
+scrapy_clawer/env/
+scrapy_clawer/.idea
+scrapy_clawer/twistd.pid
