@@ -1,6 +1,5 @@
 import scrapy
 
-
 class MablefallsSpider(scrapy.Spider):
     name = "mablefalls"
     custom_settings = {
@@ -21,10 +20,15 @@ class MablefallsSpider(scrapy.Spider):
 
     def parse(self, response):
         self.log("--------------###############################")
-        tables = response.css('table.table-condensed')
-        tbody = tables[5].xpath("tbody")
-        for row in tbody.xpath("tr"):
-            self.log(row.text)
-            #cells = row.xpath("td")
-            #if (cells[0].text == 'Marble Falls (Starcke)'):
-            #    print(cells[1].text)
+        tables = response.xpath('//table[@class="table table-condensed table-striped"]')
+        #self.log(tables)
+        tbody = tables[5].xpath("//tbody")
+        #self.log(tbody)
+        for row in tbody.xpath("//tr"):
+            #self.log(row)
+            cells = row.xpath("//td//span//text()").extract()
+            #self.log(cells)
+            for cell in cells:
+                #self.log("cell=" + cell + "=")
+                if (cell == 'Marble Falls (Starcke)'):
+                    self.log("find the result")
