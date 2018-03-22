@@ -1,14 +1,16 @@
 import scrapy
+from scrapy.loader import ItemLoader
+from scrapy_clawer.items import WaterItem
 
 class MablefallsSpider(scrapy.Spider):
     name = "mablefalls"
     custom_settings = {
         'DOWNLOADER_MIDDLEWARES': {
             'scrapy_clawer.middlewares.ChromeHeadlessMiddleware': 200
+        },
+        'ITEM_PIPELINES': {
+            'scrapy_clawer.pipelines.RecordReleaseWaterPipeline': 100
         }
-        #'ITEM_PIPELINES': {
-        #    'price_crawler.pipelines.wmPostProductPipeline': 100
-        #}
     }
 
     def start_requests(self):
@@ -19,14 +21,15 @@ class MablefallsSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        self.log("--------------###############################")
         table = response.xpath('//table[@class="table table-condensed table-striped"]')[4]
-        #self.log(table)
         rows = table.xpath("./tbody/tr")
-        #self.log(rows)
+
+        itemLoader = ItemLoader(item=WaterItem(), response=response)
+
         for row in rows:
-        #    self.log(row)
             cells = row.xpath("./td/span/text()").extract()
-            #self.log(cells[0])
             if (cells[0] == 'Marble Falls (Starcke)'):
                 self.log(cells[1] + "|" + cells[3])
+                itemLoader.add_value("releaseDate", cells[3])
+                itemLoader.add_value("releaseString", cells[1])
+                yield itemLoader.load_item()

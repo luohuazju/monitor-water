@@ -6,9 +6,9 @@
 # https://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+import re
+from scrapy.loader.processors import TakeFirst, MapCompose
 
-
-class ScrapyClawerItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class WaterItem(scrapy.Item):
+    releaseDate = scrapy.Field(output_processor=TakeFirst())
+    releaseString = scrapy.Field(output_processor=TakeFirst())
