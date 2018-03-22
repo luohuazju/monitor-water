@@ -20,15 +20,13 @@ class MablefallsSpider(scrapy.Spider):
 
     def parse(self, response):
         self.log("--------------###############################")
-        tables = response.xpath('//table[@class="table table-condensed table-striped"]')
-        #self.log(tables)
-        tbody = tables[5].xpath("//tbody")
-        #self.log(tbody)
-        for row in tbody.xpath("//tr"):
-            #self.log(row)
-            cells = row.xpath("//td//span//text()").extract()
-            #self.log(cells)
-            for cell in cells:
-                #self.log("cell=" + cell + "=")
-                if (cell == 'Marble Falls (Starcke)'):
-                    self.log("find the result")
+        table = response.xpath('//table[@class="table table-condensed table-striped"]')[4]
+        #self.log(table)
+        rows = table.xpath("./tbody/tr")
+        #self.log(rows)
+        for row in rows:
+        #    self.log(row)
+            cells = row.xpath("./td/span/text()").extract()
+            #self.log(cells[0])
+            if (cells[0] == 'Marble Falls (Starcke)'):
+                self.log(cells[1] + "|" + cells[3])
