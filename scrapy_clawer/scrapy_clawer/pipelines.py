@@ -9,7 +9,7 @@ import requests
 import json
 
 #BACKEND_URL = 'http://localhost:8080/'
-BACKEND_URL = 'http://requestbin.fullcontact.com/107z37w1'
+BACKEND_URL = 'https://requestbin.fullcontact.com/1ius7l61?inspect'
 
 
 class RecordReleaseWaterPipeline(object):
