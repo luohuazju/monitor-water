@@ -24,7 +24,7 @@ func InitViperConfig() {
 		viper.SetConfigName(appName + "-dev") // name of config file (without extension)
 	}
 	viper.AddConfigPath("/etc/" + appName + "/") // path to look for the config file in
-	viper.AddConfigPath("./")                    // optionally look for config in the working directory
+	viper.AddConfigPath("../../../conf/")        // optionally look for config in the working directory
 	viper.AddConfigPath("./conf/")
 	viper.AutomaticEnv()
 	err := viper.ReadInConfig() // Find and read the config file
