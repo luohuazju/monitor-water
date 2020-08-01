@@ -6,6 +6,6 @@ database:
   type: mysql
   host: sillycat.ddns.net
   user: watermonitor
-  password: kaishi117A
+  password: xxxxxxx
   port: 3306
   name: watermonitor

@@ -6,6 +6,6 @@ database:
   type: mysql
   host: localhost
   user: watermonitor
-  password: kaishi117A~!@
+  password: xxxxxx
   port: 3306
   name: watermonitor
